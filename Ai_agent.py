@@ -11,7 +11,7 @@ already output telemetry probabilities such as:
         "Thermal_Anomaly_Confidence": 0.0025
     }
 
-The agent's job is NOT to replace the ML models. The models detect anomalies.
+The models detect anomalies.
 The AI agent interprets model telemetry, combines vibration + thermal risk,
 triggers alerts, and creates technician-friendly maintenance recommendations.
 
@@ -110,9 +110,9 @@ class AgentDecision:
     llm_used: bool
 
 
-# -----------------------------------------------------------------------------
+
 # Utility helpers
-# -----------------------------------------------------------------------------
+
 
 def safe_float(value: Any, default: Optional[float] = None) -> Optional[float]:
     try:
@@ -152,9 +152,8 @@ def probability_from_binary_prediction(pred: Optional[int]) -> Optional[float]:
     return 1.0 if pred == 1 else 0.0
 
 
-# -----------------------------------------------------------------------------
 # Core updated telemetry logic
-# -----------------------------------------------------------------------------
+
 
 def extract_best_vibration_risk(t: AgentTelemetry) -> Optional[float]:
     """
@@ -511,9 +510,9 @@ def process_csv(input_csv: str, output_csv: str, use_gemini: bool = False, edge_
     return result_df
 
 
-# -----------------------------------------------------------------------------
+
 # Testing/demo utilities
-# -----------------------------------------------------------------------------
+
 
 def build_sample_cases() -> list[AgentTelemetry]:
     return [
@@ -596,10 +595,8 @@ def demo(use_gemini: bool = False, output_csv: Optional[str] = None) -> pd.DataF
 
     return result_df
 
-
-# -----------------------------------------------------------------------------
 # Command line interface
-# -----------------------------------------------------------------------------
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Telemetry-based AI Agent for EE 460 anomaly detection")
