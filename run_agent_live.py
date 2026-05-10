@@ -4,10 +4,6 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 
-# =========================================================
-# CONFIG
-# =========================================================
-
 INPUT_CSV = "sample_telemetry.csv"
 
 # Latest/current output
@@ -19,10 +15,6 @@ HISTORY_OUTPUT_CSV = "agent_results_history.csv"
 AGENT_FILE = "ai_agent_telemetry_updated.py"
 
 REFRESH_SECONDS = 3
-
-# =========================================================
-# LIVE LOOP
-# =========================================================
 
 print("=" * 70)
 print("Starting LIVE AI Agent Monitoring")
@@ -43,9 +35,8 @@ try:
 
         try:
 
-            # -------------------------------------------------
-            # RUN AI AGENT
-            # -------------------------------------------------
+           
+            # RUN AI AGENt
 
             subprocess.run(
                 [
@@ -61,9 +52,7 @@ try:
 
             print(f"Updated latest results: {LIVE_OUTPUT_CSV}")
 
-            # -------------------------------------------------
             # APPEND TO HISTORY CSV
-            # -------------------------------------------------
 
             if Path(LIVE_OUTPUT_CSV).exists():
 
@@ -102,15 +91,9 @@ try:
         except Exception as e:
             print(f"Error running AI agent: {e}")
 
-        # -----------------------------------------------------
-        # WAIT
-        # -----------------------------------------------------
-
+       
         time.sleep(REFRESH_SECONDS)
 
-# =========================================================
-# STOP CLEANLY
-# =========================================================
 
 except KeyboardInterrupt:
     print("\n")
