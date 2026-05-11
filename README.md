@@ -16,8 +16,9 @@ matplotlib
 sklearn  
 torch  
 optuna  
-scipy  
+scipy
+joblib
 
-2. For running the data filtering into a csv (should already be provided as kaggle_cleaned_features.csv) for the KAIST bearing dataset:  
+3. For running the data filtering into a csv (should already be provided as kaggle_cleaned_features.csv) for the KAIST bearing dataset:  
 - Create a directory named kaggle_raw_data  
 - Inside that directory add all of the log data files for it to process
